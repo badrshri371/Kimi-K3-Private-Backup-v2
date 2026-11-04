@@ -13,9 +13,16 @@ A reproducible backup and recovery workspace for the official Moonshot AI Kimi K
 - [Download instructions](DOWNLOAD.md)
 - [Integrity verification](VERIFY.md)
 - [Inference preparation](INFERENCE.md)
+- [Storage boundaries](STORAGE_AND_LIMITS.md)
 - [Python dependencies](requirements.txt)
 - [Snapshot downloader](scripts/download_snapshot.py)
 - [SHA-256 verifier](scripts/verify_manifest.py)
+- [Upstream inventory generator](scripts/update_upstream_inventory.py)
+- [Scheduled inventory workflow](.github/workflows/refresh-upstream-inventory.yml)
+
+## What GitHub automates
+
+A weekly GitHub Actions workflow checks the official Hugging Face repository metadata and updates `upstream-inventory.json` when the file listing or upstream revision changes. You can also run it manually from the repository's **Actions** tab. This records metadata only; it does not download model weights.
 
 ## Important storage rule
 
@@ -24,7 +31,8 @@ A reproducible backup and recovery workspace for the official Moonshot AI Kimi K
 ## Backup status
 
 - [x] Create repository documentation and helper scripts.
-- [ ] Record the exact upstream revision/commit to preserve.
+- [x] Add automated upstream metadata inventory workflow.
+- [ ] Run the inventory workflow and record the exact upstream revision.
 - [ ] Download all required model files to external storage.
 - [ ] Generate and verify the complete SHA-256 manifest.
 - [ ] Keep a second independent copy and verify it.
@@ -34,4 +42,4 @@ A backup is not complete until the full required snapshot has been downloaded, v
 
 ## Current status
 
-This repository contains the backup plan and tooling only. It does not contain the Kimi K3 weights, and no completed model snapshot is claimed.
+This repository contains the backup plan, download/verification tooling, and inventory automation. It does not contain the Kimi K3 weights, and no completed model snapshot is claimed.
