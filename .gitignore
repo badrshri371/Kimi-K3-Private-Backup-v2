@@ -1,0 +1,26 @@
+# Model weights and large local snapshots
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+*.onnx
+*.ckpt
+*.model
+*.weights
+Kimi-K3/
+models/
+snapshots/
+hf_cache/
+.cache/huggingface/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local credentials and environment
+.env
+.env.*
+!.env.example
